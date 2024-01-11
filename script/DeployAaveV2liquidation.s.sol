@@ -1,14 +1,17 @@
 // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
 import {Script, console} from "forge-std/Script.sol";
 import {HelperConfig} from "./HelperConfig.s.sol";
-
-pragma solidity ^0.8.20;
+import {AaveV2Liquidation} from "../src/AaveV2Liquidation.sol";
+import {ILendingPoolAddressesProvider} from "../src/aave-v2-updated/ILendingPoolAddressesProvider.sol";
+import {ISwapRouter} from "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
 
 contract DeployAaveV2Liquidation is Script {
     function run() external returns (AaveV2Liquidation, HelperConfig) {
         HelperConfig helperConfig = new HelperConfig();
 
-        (IPoLendingPoolAddressesProviderol lendingPoolAddressesProvider, uint256 deployerKey, ISwapRouter iSwapRouter) =
+        (ILendingPoolAddressesProvider lendingPoolAddressesProvider, uint256 deployerKey, ISwapRouter iSwapRouter) =
             helperConfig.activeNetworkConfig();
 
         vm.startBroadcast(deployerKey);
