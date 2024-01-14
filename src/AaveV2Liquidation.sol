@@ -74,10 +74,11 @@ contract AaveV2Liquidation is FlashLoanReceiverBase, Ownable {
 
         IERC20(assets[0]).approve(address(LENDING_POOL), type(uint256).max); // approve to repay user's debt and  the FLASHLOAN
         LENDING_POOL.liquidationCall(collateralAsset, assets[0], user, amounts[0], receiveAToken);
-
-        swapCollateralReceivedToFlashloanDebtAsset(
-            collateralAsset, IERC20(collateralAsset).balanceOf(address(this)), assets[0], uniswapPoolFee
-        );
+        if (assets[0] != collateralAsset) {
+            swapCollateralReceivedToFlashloanDebtAsset(
+                collateralAsset, IERC20(collateralAsset).balanceOf(address(this)), assets[0], uniswapPoolFee
+            );
+        }
         return true;
     }
 

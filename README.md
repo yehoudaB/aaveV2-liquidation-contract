@@ -39,6 +39,6 @@ equivalent to :
 ``````
 
 
-forge verify-contract --chain-id 42161  --watch --verifier etherscan --api-key $ARBITRUMSCAN_API_KEY 0x936ee132A0A00c374Ac03dd71eB55a7C02b3CFFe AaveV2Liquidation --constructor-args $(cast abi-encode "constructor(address,address,address)" 0xC894efbF31c71336F0C9eA2c8DC485f7eB2A8ac5 0x794a61358D6845594F94dc1DB02A252b5b4814aD 0xE592427A0AEce92De3Edee1F18E0157C05861564)    
+forge verify-contract --chain-id 137  --watch --verifier etherscan --api-key $POLYSCAN_API_KEY 0x81Ae7A73AB76c1AEDE748c6c9bC139e2032551e5 AaveV2Liquidation --constructor-args $(cast abi-encode "constructor(address,address,address)" 0x9945852318056dC9EbAfdC3caC70d05e0fBa00F7 0xd05e3E715d945B59290df0ae8eF85c1BdB684744 0xE592427A0AEce92De3Edee1F18E0157C05861564)    
 
 
